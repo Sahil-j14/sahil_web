@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Archivo, JetBrains_Mono } from "next/font/google";
 import { profile } from "../lib/content";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import "./globals.css";
 
 const display = Anton({
@@ -40,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
-      <body>
+      <body className="grain flex min-h-screen flex-col">
         {/* Always open at the top of the page. Runs before the page paints so a
             leftover #section link from a previous visit can't scroll us down. */}
         <script
@@ -49,7 +51,9 @@ export default function RootLayout({
               "(function(){try{if('scrollRestoration' in history){history.scrollRestoration='manual';}if(location.hash){history.replaceState(null,'',location.pathname+location.search);}}catch(e){}})();",
           }}
         />
-        {children}
+        <Nav />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

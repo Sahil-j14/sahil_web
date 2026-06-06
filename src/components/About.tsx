@@ -4,7 +4,7 @@ import SectionHead from "./SectionHead";
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section id="about" className="mx-auto max-w-[1400px] px-5 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
       <SectionHead index="02" kicker="Profile" title="About" />
 
       <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">

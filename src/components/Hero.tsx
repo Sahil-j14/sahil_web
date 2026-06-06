@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { profile } from "../lib/content";
 
 const container = {
@@ -55,18 +56,18 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#work"
+            <Link
+              href="/work"
               className="group relative overflow-hidden border border-amber bg-amber px-7 py-3.5 font-mono text-[0.74rem] font-semibold uppercase tracking-widest text-black transition-transform hover:-translate-y-0.5"
             >
               View Projects →
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/contact"
               className="border border-line-bright px-7 py-3.5 font-mono text-[0.74rem] uppercase tracking-widest text-fg transition-colors hover:border-cyan hover:text-cyan"
             >
               Get in touch
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -130,9 +131,9 @@ export default function Hero() {
         transition={{ delay: 1.2 }}
         className="mt-16 flex items-center gap-3"
       >
-        <span className="label">Scroll</span>
+        <span className="label">Explore</span>
         <span className="h-px w-16 bg-line-bright" />
-        <span className="font-mono text-xs text-fg-faint">01 / 06</span>
+        <span className="font-mono text-xs text-fg-faint">pick a tab below</span>
       </motion.div>
     </section>
   );

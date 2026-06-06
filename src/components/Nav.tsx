@@ -1,20 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { profile } from "../lib/content";
-
-const links = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Systems" },
-  { href: "#log", label: "Log" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#contact", label: "Contact" },
-];
+import { navLinks } from "../lib/nav";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,15 +18,22 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // close the mobile drawer whenever the route changes
+  useEffect(() => setOpen(false), [pathname]);
+
+  const isActive = (href: string) => pathname === href;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-void/85 backdrop-blur-md border-b border-line" : "border-b border-transparent"
+        scrolled || pathname !== "/"
+          ? "bg-void/85 backdrop-blur-md border-b border-line"
+          : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3.5 md:px-10">
         {/* Mark */}
-        <a href="#top" className="group flex items-center gap-3">
+        <Link href="/" className="group flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center border border-line-bright bg-panel font-display text-amber transition-colors group-hover:border-amber">
             {profile.initials}
           </span>
@@ -41,18 +43,20 @@ export default function Nav() {
             </span>
             <span className="label text-[0.6rem]">{profile.role}</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-6 lg:flex">
-          {links.map((l) => (
-            <a
+          {navLinks.map((l) => (
+            <Link
               key={l.href}
               href={l.href}
-              className="label text-[0.66rem] transition-colors hover:text-amber"
+              className={`label text-[0.66rem] transition-colors hover:text-amber ${
+                isActive(l.href) ? "text-amber" : ""
+              }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href={profile.resumeUrl}
@@ -80,15 +84,16 @@ export default function Nav() {
       {open && (
         <div className="border-t border-line bg-void/95 backdrop-blur-md lg:hidden">
           <div className="flex flex-col px-5 py-4">
-            {links.map((l) => (
-              <a
+            {navLinks.map((l) => (
+              <Link
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="label border-b border-line py-3.5 text-[0.74rem] hover:text-amber"
+                className={`label border-b border-line py-3.5 text-[0.74rem] hover:text-amber ${
+                  isActive(l.href) ? "text-amber" : ""
+                }`}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a
               href={profile.resumeUrl}

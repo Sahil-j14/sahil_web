@@ -11,7 +11,7 @@ export default function Gallery() {
   const [active, setActive] = useState<MediaItem | null>(null);
 
   return (
-    <section id="gallery" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section id="gallery" className="mx-auto max-w-[1400px] px-5 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
       <SectionHead index="05" kicker="Build Archive" title="Gallery" />
 
       {gallery.length === 0 ? (
