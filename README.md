@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sahil Jambavalikar — Portfolio
 
-## Getting Started
+A robotics-focused portfolio website. Dark "control-room" aesthetic with a
+blueprint grid, live video feeds, and a fully editable content system.
 
-First, run the development server:
+Built with **Next.js + Tailwind CSS + Framer Motion**.
+
+---
+
+## ✍️ Adding your photos, videos & projects
+
+You don't need to know how to code. Everything lives in one file and there's a
+plain-English guide:
+
+➡️ **See [`HOW-TO-ADD-CONTENT.md`](./HOW-TO-ADD-CONTENT.md)**
+
+Quick version: edit `src/lib/content.ts`, drop media files into `public/media/`.
+
+---
+
+## 💻 Run it on your computer
+
+You need [Node.js](https://nodejs.org) installed (version 20+).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install      # first time only
+npm run dev      # start the site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open **http://localhost:3000** in your browser. Edits update live.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Publish it online (free)
 
-## Learn More
+The easiest way is **[Vercel](https://vercel.com)** (made by the creators of Next.js):
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this folder to a free [GitHub](https://github.com) repository.
+2. Go to [vercel.com](https://vercel.com), sign in with GitHub, click **Add New → Project**.
+3. Select this repository and click **Deploy**. Done — you get a live URL.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After that, every time you change `content.ts` and push to GitHub, the site
+updates automatically. You can also connect a custom domain in Vercel's settings.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Alternatively, run `npm run build` to produce a production build locally.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project map
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+public/
+  media/   ← your photos & videos go here
+  docs/    ← your résumé PDF
+src/
+  lib/content.ts        ← ⭐ ALL your content (the only file you edit)
+  app/                  ← page + global styles
+  components/           ← the design (Hero, Projects, Gallery, etc.)
+```

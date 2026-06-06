@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ===========================================================================
+   DESIGN SYSTEM // "Control Room"
+   Industrial robotics HUD: deep blacks, blueprint grid, amber + cyan telemetry.
+   =========================================================================== */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: #060709;
+  --color-panel: #0c0e12;
+  --color-panel-2: #10131a;
+  --color-line: #1c212b;
+  --color-line-bright: #2a3340;
+  --color-fg: #e7e9ee;
+  --color-fg-dim: #8a909c;
+  --color-fg-faint: #565d6b;
+  --color-amber: #ffb627;
+  --color-amber-deep: #ff8a00;
+  --color-cyan: #25e8e0;
+  --color-cyan-deep: #00b3c4;
+  --color-danger: #ff4d4d;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #060709;
+  --foreground: #e7e9ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-void);
+  color: var(--color-fg);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* layered atmosphere: blueprint grid + radial glows */
+  background-image:
+    radial-gradient(900px 600px at 78% -8%, rgba(255, 182, 39, 0.07), transparent 60%),
+    radial-gradient(800px 600px at 8% 102%, rgba(37, 232, 224, 0.06), transparent 60%),
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 56px 56px, 56px 56px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: #000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-bright);
+  border: 3px solid var(--color-void);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-amber-deep); }
+
+/* ---------------------------------------------------------------------------
+   Typography helpers
+   --------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.005em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.font-mono { font-family: var(--font-mono), monospace; }
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-fg-dim);
+}
+
+/* Outline / stroked display text */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--color-line-bright);
+  color: transparent;
+}
+
+/* ---------------------------------------------------------------------------
+   Decorative utilities
+   --------------------------------------------------------------------------- */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before,
+.hud-corner::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--color-amber);
+  border-style: solid;
+}
+.hud-corner::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.hud-corner::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent),
+    var(--color-panel);
+  border: 1px solid var(--color-line);
+}
+
+.divider-dotted {
+  background-image: linear-gradient(90deg, var(--color-line-bright) 33%, transparent 0);
+  background-size: 9px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+/* Glow text accents */
+.glow-amber { text-shadow: 0 0 24px rgba(255, 182, 39, 0.4); }
+.glow-cyan { text-shadow: 0 0 24px rgba(37, 232, 224, 0.4); }
+
+/* ---------------------------------------------------------------------------
+   Animations
+   --------------------------------------------------------------------------- */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+.animate-blink { animation: blink 1.6s steps(1) infinite; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(37, 232, 224, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 232, 224, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 232, 224, 0); }
+}
+.pulse-ring { animation: pulse-ring 2.2s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
