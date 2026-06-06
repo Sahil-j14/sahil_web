@@ -44,7 +44,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -69,7 +69,7 @@ export default function Nav() {
         <button
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 border border-line-bright md:hidden"
+          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 border border-line-bright lg:hidden"
         >
           <span className={`h-px w-4 bg-fg transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
           <span className={`h-px w-4 bg-fg transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
@@ -78,7 +78,7 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="border-t border-line bg-void/95 backdrop-blur-md md:hidden">
+        <div className="border-t border-line bg-void/95 backdrop-blur-md lg:hidden">
           <div className="flex flex-col px-5 py-4">
             {links.map((l) => (
               <a
