@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent guidance files (never push)
+CLAUDE.md
+AGENTS.md
