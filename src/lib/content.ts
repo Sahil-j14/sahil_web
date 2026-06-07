@@ -51,7 +51,7 @@ export const profile = {
   // Short paragraph under your name:
   intro:
     "I'm a mechatronics engineer who designs robots end to end, from the mechanism and the printed parts to the firmware that brings them to life. Robotic arms, a humanoid that walks, a hand that grips. If it has motors and a brain, I love building it.",
-  location: "Thane, Maharashtra, India",
+  location: "Mumbai, Maharashtra, India",
   email: "sahil.jambavalikar@gmail.com",
   phone: "+91 8850620594",
   linkedin: "https://www.linkedin.com/in/sahil-jambavalikar",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
       "Live control panel served right from the board, over WebSockets",
       "Next up: glove-style gesture control over ESP-NOW for near-instant response",
     ],
-    stack: ["Embedded C++", "WebSockets", "ESP-NOW", "Fusion 360", "3D Printed"],
+    stack: ["Embedded C++", "WebSockets", "ESP32", "ESP-NOW", "Fusion 360", "3D Printed"],
     media: {
       type: "video",
       src: "/media/arm-recaptcha.mp4",
