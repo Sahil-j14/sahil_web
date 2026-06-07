@@ -35,7 +35,6 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* certifications strip */}
       <Reveal delay={0.1}>
         <div className="mt-6 panel p-7">
           <div className="label mb-5 text-[0.6rem]">// certifications & training</div>

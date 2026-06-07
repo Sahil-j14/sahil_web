@@ -44,7 +44,6 @@ export default function About() {
           </div>
         </Reveal>
 
-        {/* spec sheet */}
         <Reveal delay={0.1}>
           <div className="panel hud-corner p-6">
             <div className="label mb-5 text-[0.6rem]">// spec_sheet.json</div>

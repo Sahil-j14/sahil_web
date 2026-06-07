@@ -7,8 +7,6 @@ import Timeline from "../components/Timeline";
 import Gallery from "../components/Gallery";
 import Contact from "../components/Contact";
 
-// The home page shows everything in one scroll. The top tabs still open each
-// section as its own dedicated page (/work, /about, /systems, /log, etc.).
 export default function Home() {
   return (
     <>

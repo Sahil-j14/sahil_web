@@ -10,7 +10,6 @@ type RevealProps = {
   className?: string;
 };
 
-/** Fades + lifts its children into view once, when scrolled to. */
 export default function Reveal({ children, delay = 0, y = 22, className }: RevealProps) {
   return (
     <motion.div

@@ -5,7 +5,6 @@ type Props = {
   className?: string;
 };
 
-/** Renders a video or image with consistent framing. Used by projects & gallery. */
 export default function MediaFrame({ media, className = "" }: Props) {
   return (
     <div className={`relative overflow-hidden bg-black ${className}`}>

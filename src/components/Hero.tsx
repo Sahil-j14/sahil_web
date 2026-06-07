@@ -16,7 +16,6 @@ const item = {
 export default function Hero() {
   return (
     <section id="top" className="relative mx-auto max-w-[1400px] px-5 pt-32 pb-16 md:px-10 md:pt-40">
-      {/* faint oversized backdrop word */}
       <span
         aria-hidden
         className="pointer-events-none absolute -top-2 right-2 select-none font-display text-stroke text-[22vw] leading-none opacity-40 md:right-10 md:text-[16vw]"
@@ -25,7 +24,6 @@ export default function Hero() {
       </span>
 
       <div className="relative grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-        {/* ---- Left: identity ---- */}
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item} className="mb-7 flex flex-wrap items-center gap-3">
             <span className="flex items-center gap-2 border border-line bg-panel px-3 py-1.5">
@@ -71,14 +69,12 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ---- Right: video monitor ---- */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] as const }}
           className="hud-corner relative mx-auto w-full max-w-[340px] border border-line-bright bg-panel p-2.5"
         >
-          {/* monitor header */}
           <div className="flex items-center justify-between px-1 pb-2">
             <span className="label text-[0.58rem]">CAM_01 / ARM.6DOF</span>
             <span className="flex items-center gap-1.5 label text-[0.58rem] text-danger">
@@ -97,18 +93,15 @@ export default function Hero() {
             >
               <source src={profile.heroVideo} type="video/mp4" />
             </video>
-            {/* scanline sweep */}
             <span
               aria-hidden
               className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-cyan/10 to-transparent"
               style={{ animation: "scan 4.5s linear infinite" }}
             />
-            {/* crosshair */}
             <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-5 w-px -translate-x-1/2 -translate-y-1/2 bg-amber/40" />
             <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-px w-5 -translate-x-1/2 -translate-y-1/2 bg-amber/40" />
           </div>
 
-          {/* telemetry footer */}
           <div className="mt-2 grid grid-cols-3 gap-px bg-line text-center">
             {[
               ["AXES", "6"],
@@ -124,7 +117,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

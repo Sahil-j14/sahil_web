@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* ===========================================================================
-   DESIGN SYSTEM // "Control Room"
-   Industrial robotics HUD: deep blacks, blueprint grid, amber + cyan telemetry.
-   =========================================================================== */
-
 @theme inline {
   --color-void: #060709;
   --color-panel: #0c0e12;
@@ -46,7 +41,7 @@ body {
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  /* layered atmosphere: blueprint grid + radial glows */
+
   background-image:
     radial-gradient(900px 600px at 78% -8%, rgba(255, 182, 39, 0.07), transparent 60%),
     radial-gradient(800px 600px at 8% 102%, rgba(37, 232, 224, 0.06), transparent 60%),
@@ -61,7 +56,6 @@ body {
   color: #000;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 11px; height: 11px; }
 ::-webkit-scrollbar-track { background: var(--color-void); }
 ::-webkit-scrollbar-thumb {
@@ -71,9 +65,6 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-amber-deep); }
 
-/* ---------------------------------------------------------------------------
-   Typography helpers
-   --------------------------------------------------------------------------- */
 .font-display {
   font-family: var(--font-display), sans-serif;
   letter-spacing: 0.005em;
@@ -90,15 +81,11 @@ body {
   color: var(--color-fg-dim);
 }
 
-/* Outline / stroked display text */
 .text-stroke {
   -webkit-text-stroke: 1px var(--color-line-bright);
   color: transparent;
 }
 
-/* ---------------------------------------------------------------------------
-   Decorative utilities
-   --------------------------------------------------------------------------- */
 .grain::after {
   content: "";
   position: fixed;
@@ -138,13 +125,9 @@ body {
   height: 1px;
 }
 
-/* Glow text accents */
 .glow-amber { text-shadow: 0 0 24px rgba(255, 182, 39, 0.4); }
 .glow-cyan { text-shadow: 0 0 24px rgba(37, 232, 224, 0.4); }
 
-/* ---------------------------------------------------------------------------
-   Animations
-   --------------------------------------------------------------------------- */
 @keyframes marquee {
   to { transform: translateX(-50%); }
 }

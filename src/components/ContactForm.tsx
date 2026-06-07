@@ -17,7 +17,6 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // honeypot: if a bot filled the hidden field, silently "succeed"
     if (formData.get("botcheck")) {
       setStatus("success");
       form.reset();
@@ -27,7 +26,6 @@ export default function ContactForm() {
     setStatus("loading");
     setErrorMsg("");
 
-    // exactly the official Web3Forms pattern: append the key and POST the FormData
     formData.append("access_key", profile.web3formsKey);
     formData.append("subject", "New message from your portfolio site");
     formData.append("from_name", "Portfolio Contact Form");
@@ -78,7 +76,6 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="panel hud-corner p-6 md:p-8">
       <div className="label mb-6 text-[0.6rem]">// send a message</div>
 
-      {/* honeypot field, hidden from humans */}
       <input
         type="checkbox"
         name="botcheck"

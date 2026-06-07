@@ -18,7 +18,6 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // close the mobile drawer whenever the route changes
   useEffect(() => setOpen(false), [pathname]);
 
   const isActive = (href: string) => pathname === href;
@@ -32,7 +31,6 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3.5 md:px-10">
-        {/* Mark */}
         <Link href="/" className="group flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center border border-line-bright bg-panel font-display text-amber transition-colors group-hover:border-amber">
             {profile.initials}
@@ -45,7 +43,6 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
         <div className="hidden items-center gap-6 lg:flex">
           {navLinks.map((l) => (
             <Link
@@ -69,7 +66,6 @@ export default function Nav() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
@@ -80,7 +76,6 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
       {open && (
         <div className="border-t border-line bg-void/95 backdrop-blur-md lg:hidden">
           <div className="flex flex-col px-5 py-4">

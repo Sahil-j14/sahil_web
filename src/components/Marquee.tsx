@@ -14,7 +14,6 @@ const ticker = [
 export default function Marquee() {
   return (
     <section className="border-y border-line bg-panel/40">
-      {/* numeric stat bar */}
       <div className="mx-auto grid max-w-[1400px] grid-cols-2 divide-line md:grid-cols-4 md:divide-x">
         {stats.map((s, i) => (
           <div
@@ -32,7 +31,6 @@ export default function Marquee() {
         ))}
       </div>
 
-      {/* scrolling keyword ticker */}
       <div className="flex overflow-hidden border-t border-line py-3">
         <div className="flex shrink-0 animate-marquee items-center gap-8 whitespace-nowrap pr-8">
           {[...ticker, ...ticker].map((t, i) => (

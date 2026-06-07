@@ -43,8 +43,6 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="grain flex min-h-screen flex-col">
-        {/* Always open at the top of the page. Runs before the page paints so a
-            leftover #section link from a previous visit can't scroll us down. */}
         <script
           dangerouslySetInnerHTML={{
             __html:

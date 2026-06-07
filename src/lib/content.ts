@@ -1,30 +1,9 @@
-// ============================================================================
-//  SAHIL'S PORTFOLIO  //  CONTENT FILE
-// ============================================================================
-//  This is the only file you need to edit to update your website.
-//
-//  Everything you see on the site (your name, projects, skills, photos,
-//  videos) comes from this one file. Change the text between the quotes,
-//  save, and the website updates.
-//
-//  TO ADD A NEW PHOTO OR VIDEO:
-//    1. Put the file inside the folder:  public/media/
-//    2. Add a new block to the `gallery` list near the bottom of this file.
-//       (Copy an existing block, then change the details.)
-//
-//  TO ADD A NEW PROJECT:
-//    Copy one { ... } block in the `projects` list and edit the text.
-//
-//  Tip: keep the commas and curly braces exactly where they are.
-//  Full step-by-step help is in HOW-TO-ADD-CONTENT.md
-// ============================================================================
-
 export type MediaItem = {
   type: "video" | "image";
-  src: string;        // path inside the /public folder, e.g. "/media/arm.mp4"
+  src: string;
   title: string;
   caption: string;
-  poster?: string;    // (videos only, optional) a still image to show before play
+  poster?: string;
 };
 
 export type Project = {
@@ -36,38 +15,29 @@ export type Project = {
   description: string;
   highlights: string[];
   stack: string[];
-  media?: MediaItem;  // optional featured photo/video for this project
+  media?: MediaItem;
 };
 
-// ---------------------------------------------------------------------------
-//  1. WHO YOU ARE
-// ---------------------------------------------------------------------------
 export const profile = {
   name: "Sahil Jambavalikar",
   initials: "SJ",
   role: "Robotics & Mechatronics Engineer",
-  // The big one-liner on the homepage:
+
   headline: "I build robots that move, sense and think.",
-  // Short paragraph under your name:
+
   intro:
     "I'm a mechatronics engineer who designs robots end to end, from the mechanism and the printed parts to the firmware that brings them to life. Robotic arms, a humanoid that walks, a hand that grips. If it has motors and a brain, I love building it.",
   location: "Mumbai, Maharashtra, India",
-  // Email & phone are intentionally NOT on the site (and not even in this file),
-  // so they can't be scraped. Visitors reach you only through the contact form,
-  // which delivers messages to your inbox.
+
   linkedin: "https://www.linkedin.com/in/sahil-jambavalikar",
   resumeUrl: "/docs/resume.pdf",
-  available: true, // shows an "available for work" status light when true
-  // The video that plays in the monitor on the homepage:
+  available: true,
+
   heroVideo: "/media/arm-recaptcha.mp4",
-  // Contact form key from https://web3forms.com. This is a PUBLIC key meant for
-  // client-side use, so it's fine here. Messages from the form go to your inbox.
+
   web3formsKey: "38d689ef-1891-4af8-a53b-4f1f3b6cb3eb",
 };
 
-// ---------------------------------------------------------------------------
-//  2. HEADLINE STATS  (the big numbers near the top)
-// ---------------------------------------------------------------------------
 export const stats = [
   { value: "6", label: "DOF Robotic Arm", sub: "with motion recording" },
   { value: "2x", label: "IIT Bombay Champion", sub: "RowBoatics '24 & '25" },
@@ -75,9 +45,6 @@ export const stats = [
   { value: "100%", label: "Built In House", sub: "design, print, code" },
 ];
 
-// ---------------------------------------------------------------------------
-//  3. PROJECTS  (your work, newest first looks best)
-// ---------------------------------------------------------------------------
 export const projects: Project[] = [
   {
     id: "robotic-arm",
@@ -159,9 +126,6 @@ export const projects: Project[] = [
   },
 ];
 
-// ---------------------------------------------------------------------------
-//  4. SKILLS  (grouped technical capabilities)
-// ---------------------------------------------------------------------------
 export const skillGroups = [
   {
     label: "Electronics & Firmware",
@@ -177,9 +141,6 @@ export const skillGroups = [
   },
 ];
 
-// ---------------------------------------------------------------------------
-//  5. ACHIEVEMENTS & MILESTONES  (your timeline)
-// ---------------------------------------------------------------------------
 export const achievements = [
   { year: "2025", title: "1st Place, RowBoatics at Techfest, IIT Bombay", note: "Won it two years running with a custom high-efficiency boat." },
   { year: "2025", title: "Finalist, VES-IT Hackathon (Innovation Round)", note: "Built an automated coin-sorting machine." },
@@ -195,16 +156,6 @@ export const certifications = [
   "Intermediate Robotics, Asier Solutions",
 ];
 
-// ---------------------------------------------------------------------------
-//  6. GALLERY  //  ADD YOUR NEW PHOTOS & VIDEOS HERE
-// ---------------------------------------------------------------------------
-//  HOW TO ADD ONE:
-//    1) Drop your file into the  public/media/  folder.
-//    2) Copy a block below, paste it, and change the details.
-//
-//  For a VIDEO use:  type: "video"
-//  For a PHOTO use:  type: "image"
-// ---------------------------------------------------------------------------
 export const gallery: MediaItem[] = [
   {
     type: "video",
@@ -267,16 +218,6 @@ export const gallery: MediaItem[] = [
     caption: "Team photo after a competition run.",
   },
 
-  // To add a new photo, copy this block, remove the // marks, and edit it:
-  // {
-  //   type: "image",
-  //   src: "/media/my-new-photo.jpg",
-  //   title: "Short title",
-  //   caption: "One line about what this is.",
-  // },
 ];
 
-// ---------------------------------------------------------------------------
-//  7. LANGUAGES (spoken)
-// ---------------------------------------------------------------------------
 export const languages = ["English", "Hindi", "Marathi"];

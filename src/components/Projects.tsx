@@ -24,7 +24,6 @@ export default function Projects() {
                   hasMedia ? "" : "lg:grid-cols-1"
                 }`}
               >
-                {/* media (only featured projects) */}
                 {p.media && (
                   <div className="relative order-1 border-b border-line lg:order-none lg:border-b-0 lg:border-r">
                     <MediaFrame media={p.media} className="aspect-[4/3] h-full lg:aspect-auto" />
@@ -35,7 +34,6 @@ export default function Projects() {
                   </div>
                 )}
 
-                {/* details */}
                 <div className="flex flex-col p-7 md:p-10">
                   <div className="mb-6 flex items-center justify-between gap-4">
                     <span className="font-mono text-xs text-fg-faint">

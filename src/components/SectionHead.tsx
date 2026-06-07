@@ -6,7 +6,6 @@ type Props = {
   title: string;
 };
 
-/** Consistent numbered section header used across the page. */
 export default function SectionHead({ index, kicker, title }: Props) {
   return (
     <Reveal>

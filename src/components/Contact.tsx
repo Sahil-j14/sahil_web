@@ -23,12 +23,10 @@ export default function Contact() {
       </Reveal>
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
-        {/* the form */}
         <Reveal>
           <ContactForm />
         </Reveal>
 
-        {/* secondary links + status */}
         <Reveal delay={0.1}>
           <div className="flex flex-col gap-4">
             <div className="panel flex items-center gap-3 p-6">

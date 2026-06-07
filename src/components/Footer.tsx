@@ -9,7 +9,6 @@ export default function Footer() {
     <footer className="border-t border-line bg-panel/40">
       <div className="mx-auto max-w-[1400px] px-5 py-12 md:px-10">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          {/* mark + name */}
           <Link href="/" className="group flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center border border-line-bright bg-panel font-display text-amber transition-colors group-hover:border-amber">
               {profile.initials}
@@ -20,7 +19,6 @@ export default function Footer() {
             </span>
           </Link>
 
-          {/* quick links */}
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((l) => (
               <Link key={l.href} href={l.href} className="label text-[0.62rem] hover:text-amber">

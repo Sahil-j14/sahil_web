@@ -43,7 +43,6 @@ export default function Gallery() {
         </div>
       )}
 
-      {/* lightbox */}
       <AnimatePresence>
         {active && (
           <motion.div
