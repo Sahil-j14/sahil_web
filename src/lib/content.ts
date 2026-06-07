@@ -52,13 +52,17 @@ export const profile = {
   intro:
     "I'm a mechatronics engineer who designs robots end to end, from the mechanism and the printed parts to the firmware that brings them to life. Robotic arms, a humanoid that walks, a hand that grips. If it has motors and a brain, I love building it.",
   location: "Mumbai, Maharashtra, India",
-  email: "sahil.jambavalikar@gmail.com",
-  phone: "+91 8850620594",
+  // Email & phone are intentionally NOT on the site (and not even in this file),
+  // so they can't be scraped. Visitors reach you only through the contact form,
+  // which delivers messages to your inbox.
   linkedin: "https://www.linkedin.com/in/sahil-jambavalikar",
-  resumeUrl: "/docs/Sahil-Jambavalikar-Resume.pdf",
+  resumeUrl: "/docs/resume.pdf",
   available: true, // shows an "available for work" status light when true
   // The video that plays in the monitor on the homepage:
   heroVideo: "/media/arm-recaptcha.mp4",
+  // Contact form key from https://web3forms.com. This is a PUBLIC key meant for
+  // client-side use, so it's fine here. Messages from the form go to your inbox.
+  web3formsKey: "38d689ef-1891-4af8-a53b-4f1f3b6cb3eb",
 };
 
 // ---------------------------------------------------------------------------

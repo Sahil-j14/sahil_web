@@ -1,5 +1,6 @@
 import { profile } from "../lib/content";
 import Reveal from "./Reveal";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
@@ -16,34 +17,67 @@ export default function Contact() {
           <span className="text-amber glow-amber">something that moves.</span>
         </h1>
         <p className="mt-7 max-w-xl text-lg text-fg-dim">
-          Got a robot to build, a part to prototype, or a role in mind? Drop me a
-          line. I read everything and I reply fast.
+          Got a robot to build, a part to prototype, or a role in mind? Send me a
+          message below. It comes straight to my inbox and I reply fast.
         </p>
       </Reveal>
 
-      <Reveal delay={0.1}>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { k: "Email", v: profile.email, href: `mailto:${profile.email}` },
-            { k: "Phone", v: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
-            { k: "LinkedIn", v: "in/sahil-jambavalikar", href: profile.linkedin },
-            { k: "Résumé", v: "Download PDF ↓", href: profile.resumeUrl },
-          ].map((c) => (
+      <div className="mt-14 grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+        {/* the form */}
+        <Reveal>
+          <ContactForm />
+        </Reveal>
+
+        {/* secondary links + status */}
+        <Reveal delay={0.1}>
+          <div className="flex flex-col gap-4">
+            <div className="panel flex items-center gap-3 p-6">
+              {profile.available && (
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="pulse-ring absolute inline-flex h-2.5 w-2.5 rounded-full bg-cyan" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan" />
+                </span>
+              )}
+              <div>
+                <div className="label text-cyan">
+                  {profile.available ? "Available for work" : "Currently building"}
+                </div>
+                <div className="mt-0.5 font-mono text-xs text-fg-faint">{profile.location}</div>
+              </div>
+            </div>
+
             <a
-              key={c.k}
-              href={c.href}
-              target={c.href.startsWith("http") || c.href.endsWith(".pdf") ? "_blank" : undefined}
+              href={profile.linkedin}
+              target="_blank"
               rel="noopener noreferrer"
-              className="panel group flex flex-col justify-between gap-8 p-6 transition-colors hover:border-amber"
+              className="panel group flex items-center justify-between gap-4 p-6 transition-colors hover:border-amber"
             >
-              <span className="label text-[0.6rem]">{c.k}</span>
-              <span className="break-words font-mono text-sm text-fg transition-colors group-hover:text-amber">
-                {c.v}
-              </span>
+              <div>
+                <span className="label text-[0.6rem]">Connect</span>
+                <div className="mt-2 font-mono text-sm text-fg transition-colors group-hover:text-amber">
+                  LinkedIn
+                </div>
+              </div>
+              <span className="text-fg-faint transition-transform group-hover:translate-x-1 group-hover:text-amber">↗</span>
             </a>
-          ))}
-        </div>
-      </Reveal>
+
+            <a
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="panel group flex items-center justify-between gap-4 p-6 transition-colors hover:border-amber"
+            >
+              <div>
+                <span className="label text-[0.6rem]">Background</span>
+                <div className="mt-2 font-mono text-sm text-fg transition-colors group-hover:text-amber">
+                  Download résumé
+                </div>
+              </div>
+              <span className="text-fg-faint transition-transform group-hover:translate-y-1 group-hover:text-amber">↓</span>
+            </a>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

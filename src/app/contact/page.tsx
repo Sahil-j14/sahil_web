@@ -4,7 +4,7 @@ import Contact from "../../components/Contact";
 
 export const metadata: Metadata = {
   title: `Contact · ${profile.name}`,
-  description: `Get in touch with Sahil Jambavalikar. Email ${profile.email}.`,
+  description: "Get in touch with Sahil Jambavalikar through the contact form.",
 };
 
 export default function ContactPage() {

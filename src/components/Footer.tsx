@@ -36,12 +36,12 @@ export default function Footer() {
           <span className="font-mono text-xs text-fg-faint">
             © {year} {profile.name}, {profile.location}
           </span>
-          <a
-            href={`mailto:${profile.email}`}
+          <Link
+            href="/contact"
             className="font-mono text-xs text-fg-faint transition-colors hover:text-amber"
           >
-            {profile.email}
-          </a>
+            Get in touch →
+          </Link>
         </div>
       </div>
     </footer>
